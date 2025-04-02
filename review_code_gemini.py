@@ -135,7 +135,8 @@ def create_prompt(file: PatchedFile, hunk: Hunk, pr_details: PRDetails) -> str:
     """Creates the prompt for the Gemini model."""
     return f"""Your task is reviewing pull requests. Instructions:
     - Provide the response in following JSON format:  {{"reviews": [{{"lineNumber":  <line_number>, "reviewComment": "<review comment>"}}]}}
-    - Provide comments and suggestions ONLY if there is something to improve in chinese, otherwise "reviews" should be an empty array.
+    - Provide comments and suggestions ONLY if there is something to improve, otherwise "reviews" should be an empty array.
+    - Provide review comments and suggestions in chinese
     - Use GitHub Markdown in comments
     - Focus on bugs, security issues, and performance problems
     - IMPORTANT: NEVER suggest adding comments to the code
